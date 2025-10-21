@@ -34,8 +34,9 @@
 *.pdfsync
 
 # Build directories
+out/
 *.pdf
-!figures/*.pdf
+!shared/images/*.pdf
 
 # Backup files
 *.bak

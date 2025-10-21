@@ -1,0 +1,129 @@
+\documentclass[12pt,a4paper,dvipdfmx]{jarticle}
+
+% pLaTeX用パッケージ
+\usepackage[dvipdfmx]{graphicx}
+\usepackage[dvipdfmx]{color}
+\usepackage[dvipdfmx]{hyperref}
+
+% その他のパッケージ
+\usepackage{amsmath}
+\usepackage{listings}
+
+% タイトル情報
+\title{pLaTeX サンプル文書}
+\author{著者名}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{はじめに}
+
+これはpLaTeXのサンプル文書です。日本語も問題なく表示されます。
+
+\section{数式の例}
+
+インライン数式の例: $E = mc^2$
+
+ディスプレイ数式の例:
+\begin{equation}
+  \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+
+複数行の数式:
+\begin{align}
+  f(x) &= x^2 + 2x + 1 \\
+  &= (x + 1)^2
+\end{align}
+
+\section{リスト}
+
+\subsection{箇条書き}
+
+\begin{itemize}
+  \item 項目1
+  \item 項目2
+  \item 項目3
+\end{itemize}
+
+\subsection{番号付きリスト}
+
+\begin{enumerate}
+  \item 最初の項目
+  \item 二番目の項目
+  \item 三番目の項目
+\end{enumerate}
+
+\section{コードの挿入}
+
+\begin{lstlisting}[language=Python, caption=Pythonコード例]
+def hello_world():
+    print("Hello, World!")
+
+if __name__ == "__main__":
+    hello_world()
+\end{lstlisting}
+
+\section{画像の挿入}
+
+\subsection{基本的な画像挿入}
+
+画像を挿入する基本的な方法です：
+
+\includegraphics{images/placeholder.png}
+
+\subsection{サイズを指定した画像}
+
+画像のサイズを指定することができます：
+
+\includegraphics[width=0.5\textwidth]{images/placeholder.png}
+
+\subsection{キャプション付き画像}
+
+figure環境を使用すると、キャプションや参照ラベルを付けることができます。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\textwidth]{images/placeholder.png}
+  \caption{プレースホルダー画像の例}
+  \label{fig:placeholder}
+\end{figure}
+
+図\ref{fig:placeholder}のように参照することができます。
+
+\subsection{複数の画像を並べる}
+
+複数の画像を横に並べることもできます：
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/placeholder.png}
+    \caption{左の画像}
+    \label{fig:left}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{images/placeholder.png}
+    \caption{右の画像}
+    \label{fig:right}
+  \end{minipage}
+\end{figure}
+
+\section{まとめ}
+
+この文書はpLaTeX環境のテストに使用できます。
+\begin{itemize}
+  \item pLaTeXでのコンパイル
+  \item 日本語の表示
+  \item 数式のレンダリング
+  \item コードハイライト
+  \item 画像の挿入
+\end{itemize}
+
+すべて正常に動作することを確認してください。
+
+\end{document}

@@ -75,11 +75,11 @@ specialBeginEnd:
 commandCodeBlocks:
   roundParenthesesAllowed: 1
   stringsAllowedBetweenArguments:
-    - 'node'
-    - 'at'
-    - 'to'
-    - 'decoration'
-    - 'foreach'
+    - "node"
+    - "at"
+    - "to"
+    - "decoration"
+    - "foreach"
 
 # Align delimiters
 lookForAlignDelims:
