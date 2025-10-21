@@ -1,0 +1,147 @@
+# LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+# LaTeX intermediate files
+*.dvi
+*.xdv
+*-converted-to.*
+
+# Bibliography auxiliary files
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# Build tool auxiliary files
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+# Build directories
+*.pdf
+!figures/*.pdf
+
+# Backup files
+*.bak
+*.sav
+*~
+*.backup
+indent.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# LaTeX nomenclature
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lzo
+*.lzs
+
+# LaTeX beamer
+*.nav
+*.pre
+*.snm
+*.vrb
+
+# LaTeX hyperref
+*.brf
+
+# LaTeX tikz & pgf
+*.dpth
+*.md5
+*.auxlock
+
+# LaTeX todonotes
+*.tdo
+
+# LaTeX xindy
+*.xdy
+
+# LaTeX glossaries
+*.ist
+
+# LaTeX makeindex
+*.idx
+*.ilg
+*.ind
+
+# LaTeX minitoc
+*.maf
+*.mlf
+*.mlt
+*.mtc[0-9]*
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+
+# LaTeX package documentation
+*.listing
+
+# LaTeX changes package
+*.soc
+
+# LaTeX cprotect package
+*.cpt
+
+# LaTeX algorithm package
+*.loa
+
+# Asymptote
+*.asy
+*.pre
+
+# Sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python

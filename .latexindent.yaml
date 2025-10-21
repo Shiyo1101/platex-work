@@ -1,0 +1,96 @@
+# latexindent configuration
+# See: https://latexindentpl.readthedocs.io/
+
+defaultIndent: "  "
+
+# Indent environments
+indentRules:
+  document: 1
+  itemize: 1
+  enumerate: 1
+  description: 1
+  figure: 1
+  table: 1
+  equation: 1
+  align: 1
+
+# Remove trailing whitespace
+removeTrailingWhitespace:
+  beforeProcessing: 0
+  afterProcessing: 1
+
+# File extension settings
+fileExtensionPreference:
+  .tex: 1
+  .sty: 2
+  .cls: 3
+  .bib: 4
+
+# Backup settings
+onlyOneBackUp: 1
+maxNumberOfBackUps: 1
+cycleThroughBackUps: 0
+
+# Line break settings
+modifyLineBreaks:
+  preserveBlankLines: 1
+  condenseMultipleBlankLinesInto: 1
+
+# Verbatim environments (don't format)
+verbatimEnvironments:
+  verbatim: 1
+  lstlisting: 1
+  minted: 1
+
+# No additional indent for these environments
+noAdditionalIndent:
+  myenvironment: 1
+
+# Indent after headings
+indentAfterHeadings:
+  part: 1
+  chapter: 1
+  section: 1
+  subsection: 1
+  subsubsection: 1
+  paragraph: 1
+  subparagraph: 1
+
+# Indent items
+indentAfterItems:
+  itemize: 1
+  enumerate: 1
+  description: 1
+
+# Special characters
+specialBeginEnd:
+  displayMath:
+    begin: '\\\['
+    end: '\\\]'
+  inlineMath:
+    begin: '\\\('
+    end: '\\\)'
+
+# Command code blocks
+commandCodeBlocks:
+  roundParenthesesAllowed: 1
+  stringsAllowedBetweenArguments:
+    - 'node'
+    - 'at'
+    - 'to'
+    - 'decoration'
+    - 'foreach'
+
+# Align delimiters
+lookForAlignDelims:
+  tabular: 1
+  array: 1
+  matrix: 1
+  bmatrix: 1
+  pmatrix: 1
+  align: 1
+  align*: 1
+  alignat: 1
+  alignat*: 1
+  aligned: 1
+  cases: 1

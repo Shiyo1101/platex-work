@@ -1,0 +1,113 @@
+{
+  "name": "pLaTeX Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "mhutchie.git-graph",
+        "seatonjiang.gitmoji-vscode"
+      ],
+      "settings": {
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "pLaTeX",
+            "tools": [
+              "platex",
+              "dvipdfmx"
+            ]
+          },
+          {
+            "name": "pLaTeX with pBibTeX",
+            "tools": [
+              "platex",
+              "pbibtex",
+              "platex",
+              "platex",
+              "dvipdfmx"
+            ]
+          }
+        ],
+        "latex-workshop.latex.tools": [
+          {
+            "name": "platex",
+            "command": "platex",
+            "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-output-directory=%OUTDIR%",
+              "%DOC%"
+            ]
+          },
+          {
+            "name": "dvipdfmx",
+            "command": "dvipdfmx",
+            "args": [
+              "-o",
+              "%OUTDIR%/%DOCFILE%.pdf",
+              "%OUTDIR%/%DOCFILE%.dvi"
+            ]
+          },
+          {
+            "name": "pbibtex",
+            "command": "pbibtex",
+            "args": [
+              "%DOCFILE%"
+            ]
+          }
+        ],
+        "latex-workshop.latex.autoBuild.run": "onSave",
+        "latex-workshop.latex.clean.fileTypes": [
+          "*.aux",
+          "*.bbl",
+          "*.blg",
+          "*.idx",
+          "*.ind",
+          "*.lof",
+          "*.lot",
+          "*.out",
+          "*.toc",
+          "*.acn",
+          "*.acr",
+          "*.alg",
+          "*.glg",
+          "*.glo",
+          "*.gls",
+          "*.fls",
+          "*.log",
+          "*.fdb_latexmk",
+          "*.snm",
+          "*.synctex.gz",
+          "*.nav",
+          "*.dvi"
+        ],
+        "latex-workshop.linting.chktex.enabled": true,
+        "latex-workshop.linting.chktex.exec.path": "chktex",
+        "latex-workshop.formatting.latex": "latexindent",
+        "latex-workshop.formatting.latexindent.path": "latexindent",
+        "latex-workshop.view.pdf.viewer": "tab",
+        "editor.formatOnSave": true,
+        "markdown.preview.breaks": true,
+        "markdown.preview.fontSize": 14,
+        "markdown.preview.lineHeight": 1.6,
+        "[markdown]": {
+          "editor.defaultFormatter": "yzhang.markdown-all-in-one",
+          "editor.formatOnSave": true,
+          "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+          }
+        }
+      }
+    }
+  },
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
+  "remoteUser": "root"
+}
