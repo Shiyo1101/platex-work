@@ -1,25 +1,33 @@
 {
   "latex-workshop.latex.recipes": [
     {
-      "name": "LuaLaTeX",
+      "name": "pLaTeX",
       "tools": [
-        "lualatex"
+        "platex",
+        "dvipdfmx"
       ]
     },
     {
-      "name": "LuaLaTeX with BibTeX",
+      "name": "pLaTeX with pBibTeX",
       "tools": [
-        "lualatex",
-        "bibtex",
-        "lualatex",
-        "lualatex"
+        "platex",
+        "pbibtex",
+        "platex",
+        "platex",
+        "dvipdfmx"
+      ]
+    },
+    {
+      "name": "latexmk (pLaTeX)",
+      "tools": [
+        "latexmk_platex"
       ]
     }
   ],
   "latex-workshop.latex.tools": [
     {
-      "name": "lualatex",
-      "command": "lualatex",
+      "name": "platex",
+      "command": "platex",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
@@ -29,10 +37,31 @@
       ]
     },
     {
-      "name": "bibtex",
-      "command": "bibtex",
+      "name": "dvipdfmx",
+      "command": "dvipdfmx",
       "args": [
-        "%DOCFILE%"
+        "-o",
+        "%OUTDIR%/%DOCFILE%.pdf",
+        "%OUTDIR%/%DOCFILE%.dvi"
+      ]
+    },
+    {
+      "name": "pbibtex",
+      "command": "pbibtex",
+      "args": [
+        "%OUTDIR%/%DOCFILE%"
+      ]
+    },
+    {
+      "name": "latexmk_platex",
+      "command": "latexmk",
+      "args": [
+        "-pdfdvi",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
       ]
     }
   ],
@@ -58,7 +87,8 @@
     "*.fdb_latexmk",
     "*.snm",
     "*.synctex.gz",
-    "*.nav"
+    "*.nav",
+    "*.dvi"
   ],
   "latex-workshop.linting.chktex.enabled": true,
   "latex-workshop.formatting.latex": "latexindent",

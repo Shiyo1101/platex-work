@@ -31,6 +31,12 @@
               "platex",
               "dvipdfmx"
             ]
+          },
+          {
+            "name": "latexmk (pLaTeX)",
+            "tools": [
+              "latexmk_platex"
+            ]
           }
         ],
         "latex-workshop.latex.tools": [
@@ -58,7 +64,19 @@
             "name": "pbibtex",
             "command": "pbibtex",
             "args": [
-              "%DOCFILE%"
+              "%OUTDIR%/%DOCFILE%"
+            ]
+          },
+          {
+            "name": "latexmk_platex",
+            "command": "latexmk",
+            "args": [
+              "-pdfdvi",
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "-outdir=%OUTDIR%",
+              "%DOC%"
             ]
           }
         ],
