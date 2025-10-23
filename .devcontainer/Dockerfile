@@ -3,10 +3,10 @@ FROM texlive/texlive:latest
 # 環境変数の設定
 ENV DEBIAN_FRONTEND=noninteractive
 
-# gitとsudoをインストール（ネットワーク接続が必要だが、最小限）
+# gitとsudoをインストール
 RUN tlmgr update --self || true
 
-# vscodeユーザーを作成（VS Code Dev Containers用）
+# vscodeユーザーを作成（VSCode DevContainers用）
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
