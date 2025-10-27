@@ -91,6 +91,15 @@
     "*.dvi"
   ],
   "latex-workshop.linting.chktex.enabled": true,
+  "latex-workshop.linting.chktex.exec.args": [
+    "-wall",
+    "-n19",
+    "-n22",
+    "-n30",
+    "-n46",
+    "-e16",
+    "-q",
+  ],
   "latex-workshop.formatting.latex": "latexindent",
   "latex-workshop.view.pdf.viewer": "tab",
   "editor.formatOnSave": true,
