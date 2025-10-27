@@ -93,8 +93,10 @@
   "latex-workshop.linting.chktex.enabled": true,
   "latex-workshop.linting.chktex.exec.args": [
     "-wall",
+    "-n1",
     "-n19",
     "-n22",
+    "-n24",
     "-n30",
     "-n46",
     "-e16",
