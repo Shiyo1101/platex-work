@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper,dvipdfmx]{jarticle}
+\documentclass[11pt,a4paper,dvipdfmx,twocolumn]{jarticle}
 
 % pLaTeX用パッケージ
 \usepackage[dvipdfmx]{graphicx}
@@ -7,23 +7,293 @@
 
 % その他のパッケージ
 \usepackage{amsmath}
-\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{bookmark}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\geometry{margin=0.8in, columnsep=0.3in}
+
+% hyperrefの設定
+\hypersetup{
+  pdftitle={pLaTeX 2カラムドキュメント},
+  pdfauthor={著者名},
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
 
 % タイトル情報
-\title{タイトル}
+\title{pLaTeX 2カラムドキュメント実践ガイド}
 \author{著者名}
 \date{\today}
 
 \begin{document}
 
-\maketitle
+% タイトルをページ上部に中央配置
+\twocolumn[
+    \begin{@twocolumnfalse}
+        \maketitle
+    \end{@twocolumnfalse}
+]
 
-\section{セクション1}
+\section{はじめに}
 
-ここに内容を記述します。
+本ドキュメントは，pLaTeXにおける2カラムレイアウトの実装方法を示すテンプレートです。
 
-\section{セクション2}
+トップにタイトルを配置し，本文は2カラムで展開される形式となっています。このレイアウトは学会発表論文やジャーナル記事に適しています。
 
-ここに内容を記述します。
+\section{基本的な使い方}
+
+\subsection{段落の記述}
+
+段落は通常通り記述できます。段落間には空行を挿入することで，自動的に改行されます。2カラムレイアウトでは行の長さが短いため，文字サイズと行間隔の調整が重要です。
+
+本テンプレートでは，11ptのフォントサイズとマージン0.8インチを設定しており，バランスの取れた読みやすさを実現しています。
+
+\subsection{数式の記述}
+
+インライン数式は \(\alpha = \beta + \gamma\) のように記述します。
+
+ディスプレイ数式は以下のように記述します：
+
+\begin{equation}
+    E = mc^2
+    \label{eq:einstein}
+\end{equation}
+
+式\ref{eq:einstein}はアインシュタインの有名な方程式です。
+
+複数行の数式を記述する場合：
+
+\begin{align}
+    f(x) & = ax^2 + bx + c                                         \\
+         & = a\left(x + \frac{b}{2a}\right)^2 + c - \frac{b^2}{4a}
+    \label{eq:quadratic}
+\end{align}
+
+\section{表の使い方}
+
+\subsection{基本的な表}
+
+表\ref{tab:example1}は基本的な表の例です。2カラムレイアウトでは，表は1カラムの幅に収まるようにコンパクトに設計すると良いでしょう。
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabular}{lcc}
+        \toprule
+        項目 & 値1 & 値2 \\
+        \midrule
+        A  & 10 & 20 \\
+        B  & 30 & 40 \\
+        C  & 50 & 60 \\
+        \bottomrule
+    \end{tabular}
+    \caption{基本的な表の例}
+    \label{tab:example1}
+\end{table}
+
+\subsection{複雑な表}
+
+より複雑な表が必要な場合は，表を2段に分割するか，本文幅全体に拡張することをお勧めします。表\ref{tab:example2}では複数の行と列を示します。
+
+\begin{table}[H]
+    \centering
+    \small
+    \begin{tabular}{lcccr}
+        \toprule
+        カテゴリ & 2022年 & 2023年 & 2024年 & 変化率   \\
+        \midrule
+        部門A  & 100   & 120   & 145   & +45\% \\
+        部門B  & 80    & 85    & 88    & +10\% \\
+        部門C  & 60    & 75    & 92    & +53\% \\
+        \bottomrule
+    \end{tabular}
+    \caption{複数年度の業績比較}
+    \label{tab:example2}
+\end{table}
+
+\section{箇条書き}
+
+\subsection{番号なしリスト}
+
+2カラムレイアウトでのリスト表示例です：
+
+\begin{itemize}
+    \item 最初の項目は重要です
+    \item 二番目の項目も同様に重要です
+    \item 三番目の項目は補足情報です
+    \item ネストも可能です
+          \begin{itemize}
+              \item サブ項目1
+              \item サブ項目2
+          \end{itemize}
+\end{itemize}
+
+\subsection{番号付きリスト}
+
+段階的な手順を示す場合は番号付きリストが有効です：
+
+\begin{enumerate}
+    \item 準備段階を完了する
+    \item 実装フェーズを開始する
+    \item テストと検証を行う
+    \item 最終調整と完成
+\end{enumerate}
+
+\section{画像の挿入}
+
+\subsection{単一画像の挿入}
+
+図\ref{fig:sample1}は単一の画像を挿入する例です。2カラムレイアウトでは，画像は1カラン幅に収まるサイズにする必要があります。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\columnwidth]{images/placeholder.png}
+    \caption{サンプル画像}
+    \label{fig:sample1}
+\end{figure}
+
+\subsection{複数画像の並列配置}
+
+複数の画像を並べる場合は，minipageを使用します。図\ref{fig:sample2a}と図\ref{fig:sample2b}はサイドバイサイドで表示されます。
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{0.45\columnwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/placeholder.png}
+        \caption{左側の画像}
+        \label{fig:sample2a}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\columnwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/placeholder.png}
+        \caption{右側の画像}
+        \label{fig:sample2b}
+    \end{minipage}
+\end{figure}
+
+\section{参照と相互参照}
+
+本ドキュメント内の参照を使用できます：
+
+\begin{itemize}
+    \item セクション参照：本ガイドは\ref{sec:tips}ページをご覧ください
+    \item 式の参照：式\ref{eq:einstein}はノーベル賞を受賞した研究の基礎です
+    \item 図の参照：図\ref{fig:sample1}に示されているように
+    \item 表の参照：表\ref{tab:example1}のデータを参照
+\end{itemize}
+
+\section{2カラムレイアウトの工夫}
+\label{sec:tips}
+
+\subsection{フォントサイズの調整}
+
+2カラムレイアウトでは，フォントサイズが重要です。本テンプレートは11ptを採用しており，10ptや12ptとの比較を推奨します。
+
+\subsection{マージンの最適化}
+
+\texttt{geometry}パッケージを使用して，マージン（margin）とカラム間隔（columnsep）を調整しています。デフォルト値から小さくすることで，より多くのコンテンツを配置できます。
+
+\subsection{表と画像の最適化}
+
+表と画像は\texttt{\string\columnwidth}を使用することで，カラム幅に自動的に適応します。
+
+\begin{itemize}
+    \item 表：\(\texttt{\string \small}\)でテキストサイズを縮小
+    \item 画像：\(\texttt{width=0.9\string\columnwidth}\)で幅を指定
+    \item 複数画像：\(\texttt{\string\minipage}\)で並列配置
+\end{itemize}
+\subsection{段落の分割}
+
+長い段落は2カラムレイアウトで「Underfull \texttt{\string \hbox}」警告を発生させることがあります。段落を適切に分割することで改善できます。
+
+
+\section{共有リソースの利用}
+
+\subsection{共有画像ディレクトリ}
+
+複数のドキュメントで共有する画像は，以下のように参照します：
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\columnwidth]{../../shared/images/placeholder.png}
+    \caption{共有ディレクトリの画像例}
+    \label{fig:shared}
+\end{figure}
+
+コード例：
+\begin{verbatim}
+\includegraphics{../../shared/images/
+  placeholder.png}
+\end{verbatim}
+
+\subsection{カスタムスタイルファイル}
+
+\texttt{shared/styles/}ディレクトリにカスタムスタイルがある場合：
+
+\begin{verbatim}
+\usepackage{../../shared/styles/
+  mystyle}
+\end{verbatim}
+
+\subsection{参考文献の管理}
+
+BibTeXファイルは\texttt{shared/bibliography/}に配置します。
+
+\section{実用的なヒント}
+
+\subsection{文字化け対策}
+
+pLaTeXで日本語を正しく表示するには，以下の設定が必須です：
+
+\begin{itemize}
+    \item ドキュメントクラス：\(\texttt{jarticle}\)または\(\texttt{jbook}\)
+    \item ファイルエンコーディング：UTF-8
+    \item dvipdfmxオプション：以下を使用
+\end{itemize}
+
+\begin{verbatim}
+\usepackage[dvipdfmx]{graphicx}
+\end{verbatim}
+
+\subsection{コンパイルの効率化}
+
+latexmkコマンドを使用することで，複数回のコンパイルが自動的に実行されます：
+
+\begin{verbatim}
+latexmk -pdfdvi main.tex
+\end{verbatim}
+
+\subsection{エラートラブルシューティング}
+
+一般的なエラーと対処法：
+
+\begin{itemize}
+    \item \textbf{ファイルが見つからない}：相対パスを確認してください
+    \item \textbf{フォントエラー}：\(\texttt{jar}\)クラスを使用してください
+    \item \textbf{PDFが生成されない}：DVIファイルが生成されているか確認してください
+\end{itemize}
+
+\section{結論}
+
+本テンプレートを使用することで，専門的な2カラムドキュメントを効率的に作成できます。
+
+必要に応じて以下をカスタマイズしてください：
+
+\begin{itemize}
+    \item タイトル，著者，日付
+    \item フォントサイズとマージン
+    \item セクション構成
+    \item 画像と表の配置
+\end{itemize}
+
+このテンプレートが学会論文やテクニカルレポート作成の参考になれば幸いです。
 
 \end{document}
